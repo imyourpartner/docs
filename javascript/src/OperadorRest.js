@@ -11,7 +11,7 @@ const RecibirParametros = function (valor1, valor2, ...rest) {
   console.log("parametro[1] es: " + rest[1]);
   console.log("??: " + rest.length);
 };
-RecibirParametros("moises", "antonio", "aguiar", "ibarra");
+RecibirParametros("argentina", "colombia", "venezuela", "chile");
 
 console.log("");
 console.log("Ejemplo N# 2:");
