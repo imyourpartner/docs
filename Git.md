@@ -1,5 +1,7 @@
 # GIT
 
+## PRoyecto desde 0
+
 ## Verificar que archivos se estan siguiendo
 
 `git status`
@@ -72,4 +74,5 @@ Mergeamos sobre master (rama actual) la rama en la que tenemos los cambios (deve
 git init
 git add .
 git commit -m 'First Commit'
+(server) C:\siw>git add backend
 ```

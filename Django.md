@@ -1,16 +1,21 @@
-# Django
+# Django Final
 
 ## Levantando proyecto desde uno existente
 
-pip install virtualenv
-pip install --upgrade pip
-python -m venv venv
-C:\git\ss>C:\git\ss\venv\Scripts\activate
-python -m django --version
-pip install django
-pip install djangorestframework
+python -m virtualenv server
+Seleccionar interprete python.exe
+(server) C:\siw>pip install django
+(server) C:\siw>pip install djangorestframework
+(server) C:\siw>pip install django-cors-headers
+(server) C:\siw>pip list
+(server) C:\siw>pip freeze
+(server) C:\siw\backend>
+(server) C:\SW\backend>django-admin startproject api
+(server) C:\SW\backend\apps>
+
+---
+
 pip install djangorestframework-simplejwt
-pip install django-cors-headers
 pip install mysqlclient
 pip install -r requirements.txt
 pip install -U autopep8
