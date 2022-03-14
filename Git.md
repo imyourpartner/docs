@@ -76,3 +76,22 @@ git add .
 git commit -m 'First Commit'
 (server) C:\siw>git add backend
 ```
+
+## Listar commits
+
+```git
+C:\SW>git log --oneline --decorate
+6e22881 (HEAD -> main, origin/main, origin/HEAD) install-yapf
+105a846 app inventario
+f29c601 app core
+7a07e63 django project
+c9e1d5b initial commit
+c9a5d12 Initial commit
+```
+
+## Revertir commit
+
+```git
+C:\SW>git revert 105a846
+:wq
+```

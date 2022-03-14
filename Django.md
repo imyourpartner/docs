@@ -12,6 +12,7 @@ Seleccionar interprete python.exe
 (server) C:\siw\backend>
 (server) C:\SW\backend>django-admin startproject api
 (server) C:\SW\backend\apps>
+(server) C:\SW\backend\apps>django-admin startapp core
 
 ---
 
