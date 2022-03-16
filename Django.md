@@ -7,6 +7,7 @@ Seleccionar interprete python.exe
 (server) C:\siw>pip install django
 (server) C:\siw>pip install djangorestframework
 (server) C:\siw>pip install django-cors-headers
+(server) C:\siw>pip install mysqlclient
 (server) C:\siw>pip list
 (server) C:\siw>pip freeze
 (server) C:\siw\backend>
@@ -40,7 +41,20 @@ python manage.py migrate acc zero
 
 python manage.py migrate acc 0003_auto_20210923_091
 
-# Dependecias
+## Dependecias
 
 yarn add normalize-css
 yarn add @fortawesome/fontawesome-free
+
+## Base de datos
+
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.mysql',
+'NAME': 'mydatabase',
+'USER': 'root',
+'PASSWORD': '',
+'HOST': '127.0.0.1',
+'PORT': '3306',
+}
+}
