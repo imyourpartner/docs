@@ -26,5 +26,5 @@ dotnet ef migrations add initial
 
 ### Aplicar migracion a la base de datos
 ```
-dotnet ef  database update
+dotnet ef database update
 ```
