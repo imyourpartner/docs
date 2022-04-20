@@ -18,6 +18,13 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.0-preview.3
 dotnet tool install --global dotnet-ef
 ```
 
+### Agregar migracion
 ```
 dotnet ef migrations add initial
+
+```
+
+### Aplicar migracion a la base de datos
+```
+dotnet ef  database update
 ```
