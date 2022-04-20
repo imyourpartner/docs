@@ -8,9 +8,16 @@ dotnet new webapi -o API
 ```
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.0-preview.3.22175.1
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.0-preview.3.22175.1
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.0-preview.3.22175.1
 ```
 
-### EF
+## Entity Framework
+
+### Instalacion de EF
 ```
-dotnet ef migration add initial
+dotnet tool install --global dotnet-ef
+```
+
+```
+dotnet ef migrations add initial
 ```
