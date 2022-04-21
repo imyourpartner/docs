@@ -10,7 +10,8 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.0-previ
 dotnet add package MySql.EntityFrameworkCore --version 6.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.0-preview.3.22175.1
 dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.0-preview.3.22175.1
-Microsoft.EntityFrameworkCore.Tools
+# SQLITE
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 ```
 
 ### Desinstalar dependecias
