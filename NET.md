@@ -19,7 +19,8 @@ dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet remove package Microsoft.EntityFrameworkCore.Tools
 ```
 
-## Entity Framework
+
+# Entity Framework
 
 ### Instalacion de EF
 ```
