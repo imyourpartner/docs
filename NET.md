@@ -4,11 +4,18 @@
 dotnet new webapi -o API
 ```
 
-### Dependencias
+### Instalar dependencias Dependencias
 ```
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.0-preview.3.22175.1
+dotnet add package MySql.EntityFrameworkCore --version 6.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.0-preview.3.22175.1
 dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.0-preview.3.22175.1
+Microsoft.EntityFrameworkCore.Tools
+```
+
+### Desinstalar dependecias
+```
+dotnet remove package Microsoft.EntityFrameworkCore.Tools
 ```
 
 ## Entity Framework
