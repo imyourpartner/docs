@@ -6,10 +6,10 @@ dotnet new webapi -o API
 
 ### Instalar dependencias Dependencias
 ```
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.0-preview.3.22175.1
-dotnet add package MySql.EntityFrameworkCore --version 6.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.0-preview.3.22175.1
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.0-preview.3.22175.1
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package MySql.EntityFrameworkCore
 # SQLITE
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 ```
@@ -21,6 +21,25 @@ dotnet remove package Microsoft.EntityFrameworkCore.Tools
 
 
 # Entity Framework
+## Instalación de las herramientas
+`dotnet ef` se puede instalar como una herramienta global o local. La mayoría de los desarrolladores prefieren instalar dotnet efcomo una herramienta global usando el siguiente comando:
+
+## CLI de .NET
+
+`dotnet tool install --global dotnet-ef`
+
+Para usarlo como una herramienta local, restaure las dependencias de un proyecto que lo declara como una dependencia de herramientas usando un archivo de manifiesto de herramienta .
+
+Actualice la herramienta con el siguiente comando:
+
+`dotnet tool update --global dotnet-ef`
+
+Antes de que pueda usar las herramientas en un proyecto específico, deberá agregarle el Microsoft.EntityFrameworkCore.Designpaquete.
+
+CLI de .NET
+
+Dupdo
+dotnet add package Microsoft.EntityFrameworkCore.Design
 
 ### Instalacion de EF
 ```
