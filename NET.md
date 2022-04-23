@@ -6,10 +6,13 @@ dotnet new webapi -o API
 
 ### Instalar dependencias Dependencias
 ```
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Microsoft.EntityFrameworkCore.Tools
+# EF
 dotnet add package MySql.EntityFrameworkCore
+# EF Comandos
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.EntityFrameworkCore.Design
+# Conector SQL
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 # SQLITE
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 ```
@@ -57,3 +60,15 @@ dotnet ef migrations add initial
 ```
 dotnet ef database update
 ```
+
+```
+namespace API.Dtos
+{
+    public class DtoRequirement
+    {
+        public int id { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+    }
+}
+```c#
