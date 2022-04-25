@@ -17,6 +17,8 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 # SQLITE
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+# AutoMapper
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection 
 ```
 
 ### Desinstalar dependecias
