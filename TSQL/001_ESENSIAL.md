@@ -106,20 +106,15 @@ FROM Books;
 
 ### WHERE
 
+La cláusula `WHERE` de MS SQL Server se usa para especificar una condición mientras se recuperan los datos de una sola tabla o se unen con varias tablas.Si se cumple la condición dada, solo entonces devuelve un valor específico de la tabla.
+
 ```sql
 SELECT *
 FROM Prueba.dbo.usuarios
 WHERE nombre='jose';
 ```
 
-### WHERE
-
-La cláusula `WHERE` de MS SQL Server se usa para especificar una condición mientras se recuperan los datos de una sola tabla o se unen con varias tablas.Si se cumple la condición dada, solo entonces devuelve un valor específico de la tabla.
-
 ```sql
-IF OBJECT_ID('Students') IS NOT NULL
-    DROP TABLE Students;
-
 GO
 CREATE TABLE Students
 (
