@@ -41,8 +41,7 @@ CREATE TABLE Students
 (
     name VARCHAR(6),
     age TINYINT,
-    is_active BIT DEFAULT(1)
-    -- IS ACTIVE '1'
+
 );
 
 GO
@@ -56,5 +55,23 @@ VALUES
     ('pedro', 18),
     ('juan', 16)
 
+
+GO
+ALTER TABLE Students
+ADD 
+dni VARCHAR(50),        -- ADD A NEW COLUMN
+ddress VARCHAR(300),    -- ADD A NEW COLUMN
+sex BIT;                -- ADD A NEW COLUMN
+
+GO
+ALTER TABLE Students
+DROP COLUMN name,age,sex;
+-- DROP A COLUMN NAME
+
+
+sp_rename 'table_name.old_column_name', 'new_column_name', 'COLUMN';
+sp_rename 'Students.dni', 'cedula', 'COLUMN';
+
 select *
 from Students;
+

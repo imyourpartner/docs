@@ -1,2 +1,9 @@
 constraint sql server ejemplos 
 https://www.youtube.com/results?search_query=constraint+sql+server+ejemplos+
+
+
+
+http://chancrovsky.blogspot.com/2014/12/constraints-o-restricciones.html
+
+
+https://www.tutorialspoint.com/sql/sql-alter-command.htm

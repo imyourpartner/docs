@@ -188,13 +188,40 @@ name VARCHAR(150),
 );
 ```
 
-## AS
+### AS
 
 Permite cambiar el nombre de una tabla en el resultado del query
 
 ```sql
 SELECT code AS 'codigo de barra', name
 from Asset;
+```
+
+### ALTER TABLE
+
+La cláusula `ALTER TABLE` se utiliza para agregar, eliminar o modificar columnas en una tabla existente. También se usa para agregar y eliminar varias restricciones en una tabla existente.
+
+#### ADD COLUMN
+
+```sql
+ALTER TABLE Students
+ADD
+dni VARCHAR(50),        -- ADD A NEW COLUMN
+ddress VARCHAR(300),    -- ADD A NEW COLUMN
+sex BIT;                -- ADD A NEW COLUMN
+```
+
+#### DROP COLUMN
+
+```sql
+ALTER TABLE Students
+DROP COLUMN name,age,sex;  -- DROP A COLUMN NAME
+```
+
+> Cambiar el nombre de la columna en la tabla. No puede usar la declaración ALTER TABLE en SQL Server para cambiar el nombre de una columna en una tabla. Sin embargo, puede usar sp_rename, aunque Microsoft recomienda que descarte y vuelva a crear la tabla para que los scripts y los procedimientos almacenados no se rompan.
+
+```sql
+sp_rename 'Students.dni', 'cedula', 'COLUMN';
 ```
 
 # Funciones

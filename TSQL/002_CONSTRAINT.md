@@ -62,7 +62,7 @@ CREATE TABLE Students
 (
     name VARCHAR(6),
     age TINYINT,
-    is_active BIT DEFAULT(1) -- IS ACTIVE '1'
+    is_active BIT DEFAULT(1) -- IS ACTIVE  DEFAULT VALUE '1'
 );
 
 GO
