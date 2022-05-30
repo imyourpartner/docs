@@ -175,40 +175,6 @@ SELECT *
 FROM Students;
 ```
 
-### NOT NULL
-
-De forma predeterminada, una columna puede contener valores `NULL`.La Lrestricción `NOT NUL` obliga a una columna a NO aceptar valores `NULOS`.Esto obliga a que un campo siempre contenga un valor, lo que significa que no puede insertar un nuevo registro o actualizar un registro sin agregar un valor a este campo.
-
-```sql
-IF OBJECT_ID('Students') IS NOT NULL
-    DROP TABLE Students;
-
-GO
-CREATE TABLE Students
-(
-    name VARCHAR(6) NOT NULL,
-    age TINYINT,
-    status BIT DEFAULT (1)
-);
-
-GO
-INSERT INTO Students
-    (name,age)
-VALUES
-    (NULL, 22),  -- Nombre NULL
-    ('jose', 12)
-
-GO
-SELECT *
-FROM Students
-```
-
-**ERROR**
-
-> Msg 515, Level 16, State 2, Line 14
-
-> Cannot insert the value NULL into column 'name', table 'Prueba.dbo.Students'; column does not allow nulls. INSERT fails.
-
 ### IDENTITY
 
 Permite generar automáticamente un número único(1,2,3,4,5,6,7.etc..) cuando se inserta un nuevo registro en una tabla. este es el campo de clave principal que se creara automáticamente cada vez que se inserta un nuevo registro por motivos de rendimiento por su tamaño en bytes.
