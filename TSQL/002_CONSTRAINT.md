@@ -144,4 +144,4 @@ VALUES
 ('jose',40)
 ```
 
-> The INSERT statement conflicted with the CHECK constraint "CH_STUDENT_AGE". The conflict occurred in database "Develop", table "dbo.Student", column 'age'.
+> The INSERT statement conflicted with the CHECK constraint "CH_STUDENT_AGE". The conflict occurred in database "Develop", table "dbo.Student", column 'age'..
