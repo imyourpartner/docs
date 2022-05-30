@@ -1,77 +1,51 @@
-USE Prueba;
+DROP DATABASE Prueba;
+CREATE DATABASE Prueba;
+USE PRUEBA;
+GO
+IF OBJECT_ID('Student') IS NOT NULL
+    DROP TABLE Student;
 
 GO
-IF OBJECT_ID('Asset')IS NOT NULL
-DROP TABLE Asset;
+IF OBJECT_ID('Course') IS NOT NULL
+    DROP TABLE Course;
 
-GO
-CREATE TABLE Asset
-(
-    asset_id INT IDENTITY NOT NULL,
-    code INT NOT NULL,
-    name VARCHAR(100),
-    CONSTRAINT PK_AssetID PRIMARY KEY(asset_id),
-    -- Estableciendo PK
-    CONSTRAINT UQ_Code UNIQUE(code)
-    -- 
-)
-
-CREATE TABLE Inventory
-(
-    inventory_id INT PRIMARY KEY IDENTITY NOT NULL,
-    name VARCHAR(100),
-)
-
-
-SELECT *
-FROM sys.key_constraints
-WHERE type = 'UQ' OR type = 'PK';
-
-
-
-
-
----------------
-
-IF OBJECT_ID('Students') IS NOT NULL
-    DROP TABLE Students;
-
-GO
 CREATE TABLE Students
 (
-    name VARCHAR(6),
-    age TINYINT,
+    student_id INT IDENTITY,
+    -- BAD IDEA TO USE IDENTITY FUNCTION
+    name VARCHAR(20),
+    CONSTRAINT PK_STUDENT_ID PRIMARY KEY (student_id)
+)
 
-);
+CREATE TABLE Users
+(
+    user_id INT IDENTITY,
+    -- BAD IDEA TO USE IDENTITY FUNCTION
+    stundent_id INT NOT NULL,
+    username VARCHAR(20) NOT NULL,
+    CONSTRAINT PK_USERID PRIMARY KEY (user_id),
+    CONSTRAINT FK_USER_STUDENT FOREIGN KEY (stundent_id) REFERENCES Students(student_id),
+    CONSTRAINT UQ_STUNDENT_ID UNIQUE (stundent_id),
+    CONSTRAINT UQ_USERNAME UNIQUE (username),
+)
 
-GO
 INSERT INTO Students
-    (name,age)
+    (name)
 VALUES
-    ('maria', 22),
-    ('jose', 12),
-    ('carlos', 32),
-    ('lucia', 42),
-    ('pedro', 18),
-    ('juan', 16)
+    ('carlos'),
+    ('pedro'),
+    ('maria'),
+    ('PRUEBA')
 
+INSERT INTO Users
+    (stundent_id, username)
+VALUES
+    (1, 'carlos123'),
+    (2, 'pedro123'),
+    (3, 'maria123'),
+    (6, 'CVVEGRERG')
 
-GO
-ALTER TABLE Students
-ADD 
-dni VARCHAR(50),        -- ADD A NEW COLUMN
-ddress VARCHAR(300),    -- ADD A NEW COLUMN
-sex BIT;                -- ADD A NEW COLUMN
-
-GO
-ALTER TABLE Students
-DROP COLUMN name,age,sex;
--- DROP A COLUMN NAME
-
-
-sp_rename 'table_name.old_column_name', 'new_column_name', 'COLUMN';
-sp_rename 'Students.dni', 'cedula', 'COLUMN';
-
-select *
-from Students;
-
+SELECT *
+FROM Students;
+SELECT *
+FROM Users;

@@ -1,0 +1,25 @@
+# RELATIONSHIP
+
+### ONE TO ONE
+
+```sql
+CREATE TABLE Student
+(
+    student_id INT IDENTITY
+    name VARCHAR(20),
+    CONTRAINT PK_STUDENT_ID PRIMARY KEY (student_id)
+)
+
+CREATE TABLE course(
+course_id INT IDENTITY NOT NULL,
+stundent_id INT NOT NULL,
+name VARCHAR(30) NOT NULL,
+
+    CONSTRAINT PK_COURSE_ID PRIMARY KEY (course_id)
+    CONSTRAINT FK_COURSE_STUDENT UNIQUE FOREIGN KEY(student_id)
+)
+```
+
+### ONE TO MANY
+
+### MANY TO MANY

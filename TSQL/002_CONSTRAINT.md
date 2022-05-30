@@ -20,7 +20,19 @@ Las siguientes son algunas de las `restricciones` más utilizadas disponibles en
 
 - `CHECK` CONSTRAINT : la restricción CHECK garantiza que todos los valores de una columna satisfagan ciertas condiciones.
 
-- `INDEX` CONSTRAINT: se utiliza para crear y recuperar datos de la base de datos muy rápidament
+- `INDEX` CONSTRAINT: se utiliza para crear y recuperar datos de la base de datos muy rápidamente.
+
+**Índices implícitos**
+
+Los índices implícitos son índices que el servidor de la base de datos crea automáticamente cuando se crea un objeto. Los índices se crean automáticamente para restricciones de clave principal y restricciones únicas.
+
+### LIST OF CONSTRAINTS
+
+```sql
+SELECT *
+FROM sys.key_constraints
+WHERE TYPE = 'PK' OR TYPE='UQ';
+```
 
 ### NOT NULL
 
@@ -53,7 +65,6 @@ VALUES
 ### DEFAULT
 
 ```sql
-
 IF OBJECT_ID('Students') IS NOT NULL
     DROP TABLE Students;
 
@@ -64,36 +75,73 @@ CREATE TABLE Students
     age TINYINT,
     is_active BIT DEFAULT(1) -- IS ACTIVE  DEFAULT VALUE '1'
 );
-
-GO
-INSERT INTO Students
-    (name,age)
-VALUES
-    ('maria', 22),
-    ('jose', 12),
-    ('carlos', 32),
-    ('lucia', 42),
-    ('pedro', 18),
-    ('juan', 16)
-
-select *
-from Students;
 ```
+
+### UNIQUE
 
 ```sql
-USE Prueba;
-
-GO
-IF OBJECT_ID('Asset')IS NOT NULL
-DROP TABLE Asset;
-
-GO
-CREATE TABLE Asset
+CREATE TABLE Student
 (
-    asset_id INT IDENTITY NOT NULL,
-    code INT NOT NULL,
-    name VARCHAR(100),
-    CONSTRAINT PK_AssetID PRIMARY KEY(asset_id), -- Estableciendo PK
-    CONSTRAINT UQ_Code UNIQUE(code)              --
-)
+    name VARCHAR(30),
+    dni int,
+    -- CONSTRAINT UQ
+    CONSTRAINT UQ_Student_DNI UNIQUE (dni) -- UNIQUE COLUMN
+);
 ```
+
+### PRIMARY KEY
+
+```sql
+CREATE TABLE Student
+(
+    student_id INT IDENTITY,
+    name VARCHAR(30),
+    dni int,
+    --CONSTRAINT PK
+    CONSTRAINT PK_STUDENT_ID PRIMARY KEY (student_id) -- PRIMARY KEY COLUMN
+);
+```
+
+### FOREIGN KEY
+
+```sql
+CREATE TABLE Student
+(
+    student_id INT IDENTITY,-- PRIMARY KEY COLUMN
+    name VARCHAR(30),
+    dni int,
+    -- CONSTRAINT
+    CONSTRAINT PK_STUDENT_ID PRIMARY KEY (student_id),
+);
+
+GO
+CREATE TABLE Credit
+(
+    credit_id INT IDENTITY NOT NULL, -- PRIMARY KEY COLUMN
+    student_id INT NOT NULL,         -- FOREIGN KEY COLUMN
+    credit SMALLMONEY,
+    -- CONSTRAINT
+    CONSTRAINT PK_CREDIT_CREDIT_ID PRIMARY KEY (credit_id), --PK
+    CONSTRAINT FK_CREDIT_STUDENT FOREIGN KEY(student_id)    --FK
+    REFERENCES Student(student_id) -- RELATIONSHIP
+);
+```
+
+### CHECK
+
+```sql
+CREATE TABLE Student
+(
+    student_id INT IDENTITY
+    name VARCHAR(30),
+    age TINYINT
+        CONSTRAINT CH_STUDENT_AGE CHECK (age>=18 AND age<=30)
+)
+
+INSERT INTO Student(name,age)
+VALUES
+('maria', 30),
+('jose',40)
+```
+
+> The INSERT statement conflicted with the CHECK constraint "CH_STUDENT_AGE". The conflict occurred in database "Develop", table "dbo.Student", column 'age'.
