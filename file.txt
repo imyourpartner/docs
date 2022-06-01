@@ -7,3 +7,6 @@ http://chancrovsky.blogspot.com/2014/12/constraints-o-restricciones.html
 
 
 https://www.tutorialspoint.com/sql/sql-alter-command.htm
+
+
+https://evilnapsis.com/2015/07/11/inventio-lite-sistema-de-inventario-y-ventas/
