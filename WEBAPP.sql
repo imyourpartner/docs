@@ -40,7 +40,6 @@ CREATE TABLE Inventory
     CONSTRAINT FK_INVENTORY_COMPANY FOREIGN KEY(company_id) REFERENCES Company(company_id)
 )
 
-
 -- TABLE ASSET
 GO
 CREATE TABLE Asset
@@ -56,6 +55,16 @@ CREATE TABLE Asset
     CONSTRAINT FK_ASSET_COMPANY FOREIGN KEY(company_id) REFERENCES Company(company_id),
     CONSTRAINT UQ_ASSET_CODE UNIQUE(code)
 )
+
+--TABLE INVENTORY_ASSET
+CREATE TABLE Inventory_Asset
+(
+    [inventory_id] INT,
+    [asset_id] INT,
+    CONSTRAINT FK_ASSET_ID FOREIGN KEY (asset_id) REFERENCES Asset(asset_id),
+    CONSTRAINT FK_IVENTORY_ID FOREIGN KEY (inventory_id) REFERENCES Inventory(inventory_id)
+)
+
 
 -- TABLE ASSET TYPE
 GO
@@ -91,15 +100,6 @@ CREATE TABLE AssetMadeBy
 
 )
 
---TABLE INVENTORY_ASSET
-CREATE TABLE Inventory_Asset
-(
-    asset_id INT,
-    inventory_id INT,
-    CONSTRAINT PK_INVENTORY_ASSET PRIMARY KEY (asset_id,inventory_id),
-    CONSTRAINT FK_ASSET_ID FOREIGN KEY (asset_id) REFERENCES Asset(asset_id),
-    CONSTRAINT FK_IVENTORY_ID FOREIGN KEY (inventory_id) REFERENCES Inventory(inventory_id)
-)
 
 /* 
                     SEED DATA IN THE DATABASE
@@ -200,6 +200,11 @@ VALUES
 
 
 
+SELECT AssetType.[type]
+FROM Asset INNER JOIN AssetType ON Asset.asset_id = AssetType.assettype_id
+
+
+
 
 -- SELECT *
 -- FROM Company;
@@ -215,13 +220,20 @@ VALUES
 -- FROM INVENTORY;
 
 
+select *
+from Asset
 
 
 
 
-
-
-
+CREATE PROCEDURE OR
+ALTER sp_Asset_GetAll
+AS
+BEGIN
+    SELECT *
+    FROM Asset
+    ORDER BY Asset DESC
+END;
 
 
 
