@@ -73,9 +73,10 @@ El enfoque de `Database First`  proporciona una alternativa a los enfoques de  `
 
 -> Trabajar en función a `store procedures` o ejecutar codigo SQL explicitamente en un string
 
-
+### Trabajar con modelos
 Generar clases (Entidades) a partir de una BD existente:
-Utilice el comando DbContext Scaffold para generar el modelo. El comando tiene dos argumentos obligatorios: una cadena de conexión y un proveedor. La cadena de conexión dependerá de su entorno y proveedor de base de datos. El argumento del proveedor es el proveedor de Entity Framework para la base de datos elegida. Este ejemplo utiliza la base de datos de muestra AdventureWorks para el servidor SQL proporcionada por Microsoft.
+
+Utilice el comando `DbContext Scaffold` para generar el modelo. El comando tiene dos argumentos obligatorios: una cadena de conexión y un proveedor. La cadena de conexión dependerá de su entorno y proveedor de base de datos. El argumento del proveedor es el proveedor de Entity Framework para la base de datos elegida. Este ejemplo utiliza la base de datos de muestra `AdventureWorks` para el servidor SQL proporcionada por Microsoft.
 
 ```hs
 dotnet ef dbcontext scaffold "Server=SERV-01\SQLEXPRESS01\;Database=MyFirstDatabase;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model
@@ -89,7 +90,7 @@ dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Co
 ```
 
 ### Actualización del modelo
-El enfoque recomendado para mantener los cambios en la base de datos sincronizados con el modelo generado es usar migraciones, es decir, primero hacer los cambios en el modelo y luego usar herramientas para generar código que propague las modificaciones a la base de datos. Sin embargo, dependiendo de sus circunstancias, esto puede no ser siempre una opción. Si necesita volver a montar el modelo después de que se hayan realizado cambios en el esquema de la base de datos, puede hacerlo especificando la opción -fo , por ejemplo:--force
+El enfoque recomendado para mantener los cambios en la base de datos sincronizados con el modelo generado es usar migraciones, es decir, primero hacer los cambios en el modelo y luego usar herramientas para generar código que propague las modificaciones a la base de datos. Sin embargo, dependiendo de sus circunstancias, esto puede no ser siempre una opción. Si necesita volver a montar el modelo después de que se hayan realizado cambios en el esquema de la base de datos, puede hacerlo especificando la opción `-f` o , por ejemplo:`--force`
 
 ```hs
 dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer --force
