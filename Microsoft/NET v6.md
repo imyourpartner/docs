@@ -31,18 +31,6 @@ Antes de que pueda usar las herramientas en un proyecto específico, deberá agr
 dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
 
-# Trabajando con migraciones
-### Agregar migracion
-
-```hs
-dotnet ef migrations add initial
-```
-
-### Aplicar migracion a la base de datos
-```hs
-dotnet ef database update
-```
-
 ### Desinstalar dependecias
 ```hs
 dotnet remove package Microsoft.EntityFrameworkCore.Tools
@@ -59,6 +47,18 @@ Se enfoca en el dominio de la aplicación y comienza a crear clases para su enti
 -> Crear o actualiza el esquema de la base de datos mediante migración automatizada o migración basada en código.
 
 Los cambios se aplican a la base de datos despues de ejecutar:
+```hs
+dotnet ef database update
+```
+
+## Trabajando con migraciones
+### Agregar migracion
+
+```hs
+dotnet ef migrations add initial
+```
+
+### Aplicar migracion a la base de datos
 ```hs
 dotnet ef database update
 ```
