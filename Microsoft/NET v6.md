@@ -87,6 +87,25 @@ La clase `DbContext`  tomará el nombre de la base de datos más "Contexto". Pue
 
 ```hs
 dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model -c "AdventureContext"
+
+ ### Configuración a la base de datos mediante un JSON (appsettings.js,appsettings.Development)
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=SERVER-TEST-01\\SQLEXPRESS01;Database=MyFirstDatabase;Trusted_Connection=True;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}
+```
+
+```hs
+ dotnet ef dbcontext scaffold Name=ConnectionStrings:DefaultConnection Microsoft.EntityFrameworkCore.SqlServer -o Model
 ```
 
 ### Actualización del modelo
@@ -97,3 +116,9 @@ dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Co
 ```
 
 Todos los archivos de clase se sobrescribirán, lo que significa que se perderán todas las modificaciones que haya realizado, por ejemplo, agregar atributos o miembros adicionales. Puede mitigar esto optando por usar la API Fluent para la configuración y usando clases de configuración separadas . Además, puede usar clases parciales para declarar propiedades adicionales que no se asignan a columnas en las tablas de la base de datos.
+
+
+
+dotnet ef dbcontext scaffold Name=ConnectionStrings:DefaultConnection Microsoft.EntityFrameworkCore.SqlServer -o Model
+
+dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model -c "AdventureContext"
