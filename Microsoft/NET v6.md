@@ -87,8 +87,8 @@ La clase `DbContext`  tomará el nombre de la base de datos más "Contexto". Pue
 
 ```hs
 dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model -c "AdventureContext"
-
- ### Configuración a la base de datos mediante un JSON (appsettings.js,appsettings.Development)
+```
+### Configuración hacia a la base de datos mediante un JSON (appsettings.js,appsettings.Development)
 
 ```json
 {
