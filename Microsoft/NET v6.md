@@ -77,14 +77,14 @@ El enfoque de `Database First`  proporciona una alternativa a los enfoques de  `
 Generar clases (Entidades) a partir de una BD existente:
 Utilice el comando DbContext Scaffold para generar el modelo. El comando tiene dos argumentos obligatorios: una cadena de conexión y un proveedor. La cadena de conexión dependerá de su entorno y proveedor de base de datos. El argumento del proveedor es el proveedor de Entity Framework para la base de datos elegida. Este ejemplo utiliza la base de datos de muestra AdventureWorks para el servidor SQL proporcionada por Microsoft.
 
-``hs
+```hs
 dotnet ef dbcontext scaffold "Server=SERV-01\SQLEXPRESS01\;Database=MyFirstDatabase;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model
 ```
 La opción `-o`  (o alternativamente --output-dir) especifica el directorio (`carpeta`) donde se generarán los archivos de clase. Si se omite, los archivos de clase se generarán en el directorio del proyecto (donde se encuentra el archivo .csproj ).
 
 La clase `DbContext`  tomará el nombre de la base de datos más "Contexto". Puede anular esto usando la opción -co --context, por ejemplo
 
-``hs
+```hs
 dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model -c "AdventureContext"
 ```
 
