@@ -61,7 +61,7 @@ Se enfoca en el dominio de la aplicación y comienza a crear clases para su enti
 Los cambios se aplican a la base de datos despues de ejecutar:
 ```hs
 dotnet ef database update
-``
+```
 
 
 ## Database First
@@ -76,6 +76,7 @@ El enfoque de `Database First`  proporciona una alternativa a los enfoques de  `
 
 Generar clases (Entidades) a partir de una BD existente:
 Utilice el comando DbContext Scaffold para generar el modelo. El comando tiene dos argumentos obligatorios: una cadena de conexión y un proveedor. La cadena de conexión dependerá de su entorno y proveedor de base de datos. El argumento del proveedor es el proveedor de Entity Framework para la base de datos elegida. Este ejemplo utiliza la base de datos de muestra AdventureWorks para el servidor SQL proporcionada por Microsoft.
+
 ``hs
 dotnet ef dbcontext scaffold "Server=SERV-01\SQLEXPRESS01\;Database=MyFirstDatabase;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model
 ```
