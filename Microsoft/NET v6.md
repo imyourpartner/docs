@@ -72,3 +72,26 @@ El enfoque de `Database First`  proporciona una alternativa a los enfoques de  `
 -> Crear base de datos
 
 -> Trabajar en función a `store procedures` o ejecutar codigo SQL explicitamente en un string
+
+
+Generar clases (Entidades) a partir de una BD existente:
+Utilice el comando DbContext Scaffold para generar el modelo. El comando tiene dos argumentos obligatorios: una cadena de conexión y un proveedor. La cadena de conexión dependerá de su entorno y proveedor de base de datos. El argumento del proveedor es el proveedor de Entity Framework para la base de datos elegida. Este ejemplo utiliza la base de datos de muestra AdventureWorks para el servidor SQL proporcionada por Microsoft.
+``hs
+dotnet ef dbcontext scaffold "Server=SERV-01\SQLEXPRESS01\;Database=MyFirstDatabase;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model
+```
+La opción `-o`  (o alternativamente --output-dir) especifica el directorio (`carpeta`) donde se generarán los archivos de clase. Si se omite, los archivos de clase se generarán en el directorio del proyecto (donde se encuentra el archivo .csproj ).
+
+La clase `DbContext`  tomará el nombre de la base de datos más "Contexto". Puede anular esto usando la opción -co --context, por ejemplo
+
+``hs
+dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model -c "AdventureContext"
+```
+
+### Actualización del modelo
+El enfoque recomendado para mantener los cambios en la base de datos sincronizados con el modelo generado es usar migraciones, es decir, primero hacer los cambios en el modelo y luego usar herramientas para generar código que propague las modificaciones a la base de datos. Sin embargo, dependiendo de sus circunstancias, esto puede no ser siempre una opción. Si necesita volver a montar el modelo después de que se hayan realizado cambios en el esquema de la base de datos, puede hacerlo especificando la opción -fo , por ejemplo:--force
+
+```hs
+dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer --force
+```
+
+Todos los archivos de clase se sobrescribirán, lo que significa que se perderán todas las modificaciones que haya realizado, por ejemplo, agregar atributos o miembros adicionales. Puede mitigar esto optando por usar la API Fluent para la configuración y usando clases de configuración separadas . Además, puede usar clases parciales para declarar propiedades adicionales que no se asignan a columnas en las tablas de la base de datos.
