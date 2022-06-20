@@ -1,6 +1,17 @@
 # Liux Server Documentacion
 
 ## Comandos
+### Administracion de usuarios
+
+#### Crear usuario
+```
+useradd <username>
+```
+#### Establecer Contraseña
+```
+passwd <username>
+```
+
 
 ### Actualizar sistema
 ```
