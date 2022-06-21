@@ -83,7 +83,7 @@ dotnet ef dbcontext scaffold "Server=SERV-01\SQLEXPRESS01\;Database=MyFirstDatab
 ```
 La opción `-o`  (o alternativamente --output-dir) especifica el directorio (`carpeta`) donde se generarán los archivos de clase. Si se omite, los archivos de clase se generarán en el directorio del proyecto (donde se encuentra el archivo .csproj ).
 
-La clase `DbContext`  tomará el nombre de la base de datos más "Contexto". Puede anular esto usando la opción -co --context, por ejemplo
+La clase `DbContext`  tomará el nombre de la base de datos más "Contexto". Puede anular esto usando la opción -o --context, por ejemplo
 
 ```hs
 dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Model -c "AdventureContext"
@@ -108,6 +108,14 @@ dotnet ef dbcontext scaffold "Server=.\;Database=AdventureWorksLT2012;Trusted_Co
  dotnet ef dbcontext scaffold Name=ConnectionStrings:DefaultConnection Microsoft.EntityFrameworkCore.SqlServer -o Model
 ```
 
+## Especificar x tabla para el scaffold 
+Todas las tablas del esquema de la base de datos tienen ingeniería inversa en tipos de entidad de forma predeterminada. Puede limitar qué tablas se someten a ingeniería inversa especificando esquemas y tablas
+La opción `--schema` se puede usar para incluir todas las tablas dentro de un esquema, mientras que `--table` se puede usar para incluir tablas específicas.
+
+Para incluir varias tablas, especifique la opción varias veces:
+```hs
+dotnet ef dbcontext scaffold ... --table Artist --table Album
+```
 ### Actualización del modelo
 El enfoque recomendado para mantener los cambios en la base de datos sincronizados con el modelo generado es usar migraciones, es decir, primero hacer los cambios en el modelo y luego usar herramientas para generar código que propague las modificaciones a la base de datos. Sin embargo, dependiendo de sus circunstancias, esto puede no ser siempre una opción. Si necesita volver a montar el modelo después de que se hayan realizado cambios en el esquema de la base de datos, puede hacerlo especificando la opción `-f` o , por ejemplo:`--force`
 
