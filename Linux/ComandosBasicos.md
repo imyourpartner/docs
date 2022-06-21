@@ -24,7 +24,16 @@ sudo setenforce Permissive
 
 
 
+
+
 https://www.digitalocean.com/community/tutorials/how-to-configure-the-linux-firewall-for-docker-swarm-on-centos-7
 
 
 https://linuxopsys.com/topics/linux-file-permissions
+
+
+## otros
+sudo fdisk -l
+$ sudo mkdir /mnt/USB
+sudo mount /dev/sdb1 /mnt/USB/
+https://www.linuxfordevices.com/tutorials/linux/mount-usb-drives-in-linux
