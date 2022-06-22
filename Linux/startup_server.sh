@@ -9,7 +9,8 @@ firewall-cmd --set-default-zone=home
 dnf -y install openssh-server 
 dnf -y install wget
 dnf -y install iptables
-dnf -y install fuse-overlayfs
+dnf -y install finger
+
 ######  OPENSSH
 # Eliminar puerto por defecto `22` servicio ssh
 firewall-cmd --permanent --remove-service=ssh
