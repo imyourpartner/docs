@@ -83,7 +83,7 @@ docker network create mired
 ## Inspeccionar red
 
 ```
-docker network inspect mired
+docker network inspect miredf
 ```
 
 ## Listar redes
