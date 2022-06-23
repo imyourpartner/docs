@@ -1,0 +1,13 @@
+version: "2.6"
+services:
+  container_name: mssql
+  image:mariadb: sqlserver:latest
+  environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=0000
+    - MSSQL_PID=Express
+  ports:
+    - 1433:1433
+
+volumes:
+networks:
