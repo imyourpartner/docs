@@ -67,3 +67,5 @@ Type passwd username and change the password
 Type exit
 Type wsl
 Type sudo echo hi to confirm the new password work
+wsl --list
+wsl -d Ubuntu-20.04 --user root
