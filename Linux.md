@@ -60,3 +60,10 @@ sudo systemctl status sshd
 
 https://linuxhint.com/install_ubuntu_windows_10_wsl/
  sudo apt install htop
+
+ Open cmd.exe
+Type wsl -u root
+Type passwd username and change the password
+Type exit
+Type wsl
+Type sudo echo hi to confirm the new password work
