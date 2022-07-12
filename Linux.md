@@ -56,3 +56,7 @@ sudo systemctl disable sshd --now
 sudo systemctl enable sshd --now
 sudo systemctl status sshd
 ```
+
+
+https://linuxhint.com/install_ubuntu_windows_10_wsl/
+ sudo apt install htop
